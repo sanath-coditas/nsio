@@ -30,9 +30,16 @@ class AppRouter {
       GoRoute(
         path: '/home',
         name: 'home',
-        pageBuilder: (context, state) => MaterialPage(
+        pageBuilder: (context, state) => CustomTransitionPage(
           child: HomeScreen(
             user: ((state.extra as Map<String, dynamic>?)?['user'] as User),
+          ),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              FadeTransition(
+            opacity: CurveTween(
+              curve: Curves.easeIn,
+            ).animate(animation),
+            child: child,
           ),
         ),
       ),
@@ -48,9 +55,16 @@ class AppRouter {
       GoRoute(
         path: '/product_detail',
         name: 'product_detail',
-        pageBuilder: (context, state) => MaterialPage(
+        pageBuilder: (context, state) => CustomTransitionPage(
           child: ProductDetail(
             beer: ((state.extra as Map<String, dynamic>?)?['beer'] as Beer),
+          ),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+              FadeTransition(
+            opacity: CurveTween(
+              curve: Curves.easeIn,
+            ).animate(animation),
+            child: child,
           ),
         ),
       ),

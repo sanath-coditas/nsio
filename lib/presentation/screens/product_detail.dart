@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nonstopioassignment/constants/asset_consatnts.dart';
@@ -52,17 +53,26 @@ class ProductDetail extends StatelessWidget {
                       const SizedBox(
                         height: 31,
                       ),
-                      Text(
-                        beer.name ?? '',
-                        style: TextStyleConstants.s16W700cAFB2B5,
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      Text(
-                        beer.tagline ?? '',
-                        style: TextStyleConstants.s12W400c77838F,
-                      )
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            beer.name ?? '',
+                            style: TextStyleConstants.s16W700cAFB2B5,
+                          ),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          Text(
+                            beer.tagline ?? '',
+                            style: TextStyleConstants.s12W400c77838F,
+                          )
+                        ],
+                      ).animate().moveY(
+                            begin: 20,
+                            end: 0,
+                          )
                     ],
                   ),
                 ),
