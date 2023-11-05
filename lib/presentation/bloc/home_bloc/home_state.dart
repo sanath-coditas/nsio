@@ -1,15 +1,23 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'home_bloc.dart';
 
-sealed class HomeState {}
+sealed class HomeState extends Equatable {}
 
-final class HomeInitial extends HomeState {}
+final class HomeInitial extends HomeState {
+  @override
+  List<Object?> get props => [];
+}
 
-class HomeLoadingState extends HomeState {}
+class HomeLoadingState extends HomeState {
+  @override
+  List<Object?> get props => [];
+}
 
 class HomeFailureState extends HomeState {
   HomeFailureState({required this.failure});
   final Failure failure;
+
+  @override
+  List<Object?> get props => [failure];
 }
 
 class HomeLoadedState extends HomeState {
@@ -28,4 +36,10 @@ class HomeLoadedState extends HomeState {
       isFetching: isFetching ?? this.isFetching,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        beers,
+        isFetching,
+      ];
 }

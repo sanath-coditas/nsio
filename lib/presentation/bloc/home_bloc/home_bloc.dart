@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nonstopioassignment/core/failure.dart';
 import 'package:nonstopioassignment/domain/entities/beer_entity.dart';
